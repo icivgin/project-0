@@ -52,7 +52,6 @@ SaveRender.prototype.renderTemplateAll = function(template_source, where) {
 	_.each(items_json, function(item) {
 		$(where).prepend(template(item));
 		Post.count += 1;
-		console.log(Post.count);
 	});
 
 }

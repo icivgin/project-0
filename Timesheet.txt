@@ -9,3 +9,4 @@ FRI:
 12:09pm - 12:24pm || Added delete-all button. Fixed bugs regarding refresh().
 12:24pm - 12:40pm || Added the delete single post functionality. Did minor testing and everything seems to work.
 12:40pm - 1:09pm  || Bug fixes for indexing. All functionality of MVP now working properly!!
+1:09pm  - 1:20pm  || Added README.md
