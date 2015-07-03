@@ -13,16 +13,10 @@ function Post (owner, title, content) {
 	this.content = content;
 	this.highFiveCount = 0;
 	this.date = date.toDateString();
-	this.index = Post.count;
+	this.index = Post.count + 1;
 
 	this.items = localStorage.getItem('posts');
 	this.key = 'posts';
-}
-
-Post.count = 1;
-
-SaveRender.prototype.delete = function() {
-
 }
 
 Post.prototype.addHighFive = function() {
@@ -50,6 +44,7 @@ SaveRender.prototype.saveToLs = function(thing) {
 
 //Render template all
 SaveRender.prototype.renderTemplateAll = function(template_source, where) {
+	Post.count = 0;
 	var items_json = JSON.parse(this.storedPosts);
 
 	var template = _.template($(template_source).html());
@@ -57,6 +52,7 @@ SaveRender.prototype.renderTemplateAll = function(template_source, where) {
 	_.each(items_json, function(item) {
 		$(where).prepend(template(item));
 		Post.count += 1;
+		console.log(Post.count);
 	});
 
 }
@@ -82,7 +78,7 @@ $newPostForm.on('submit', function(event) {
 //reindex function for individual post delete button
 function reindex(arr) {
 	$.each(arr, function(index) {
-		this.index = index;
+		this.index = index + 1;
 	});
 }
 
@@ -109,6 +105,7 @@ $('#delete-all').on('click', function() {
 	if (confirm('Are you sure you want to delete all posts?')) {
 		localStorage.clear();
 		$('#post-list').html('');
+		Post.count = 0;
 	}
 })
 
@@ -126,6 +123,7 @@ $('#post-list').on('click', '.high-five-click', function() {
 	localStorage.clear();
 	localStorage.setItem('posts', JSON.stringify(items));
 	$('#post-list').html('');
+	reindex(items);
 	refresh();
 
 
