@@ -1,0 +1,41 @@
+/* Header */
+#header {
+	margin-top: 40px;
+	margin-right: 50px;
+}
+
+.header {
+	list-style-type: none;
+	text-align: center;
+}
+
+.header li,
+.header li h1 {
+	display: inline;
+	padding: 30px;
+	color: darkblue;
+}
+
+/* Add post button*/
+.post-btn {
+	margin-bottom: 20px;
+}
+
+/* Posts */
+.post {
+	padding: 20px 20px 50px 20px;
+	margin-bottom: 20px;
+	border: solid darkblue 1px;
+}
+
+.post-footer {
+	display: inline;
+}
+
+.post-number {
+	font-size: 24px;
+	padding-top: 15px;
+}
+.high-five {
+	padding-top: 25px;
+}
