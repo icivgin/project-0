@@ -4,4 +4,6 @@ THU:
 8:09pm - 10:50pm
 
 FRI:
-10:15am - 11:22am Save and render methods
+10:15am - 11:22am || Save and render methods
+11:22am - 12:09pm || Added high-five functionality :)
+12:09pm - 12:24pm || Added delete-all button. Fixed bugs regarding refresh().

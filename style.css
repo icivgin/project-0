@@ -28,6 +28,9 @@
 .post-btn {
 	margin-bottom: 20px;
 }
+.right {
+	float: right;
+}
 
 /* Posts */
 .post {

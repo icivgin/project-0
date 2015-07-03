@@ -48,15 +48,6 @@ SaveRender.prototype.saveToLs = function(thing) {
 	localStorage.setItem(this.key, JSON.stringify(items_json));
 }
 
-//Render template one
-SaveRender.prototype.renderTemplate = function(template_source, where) {
-	var template = _.template($(template_source).html());
-
-		$(where).prepend(template(this));
-
-	Post.count += 1;
-}
-
 //Render template all
 SaveRender.prototype.renderTemplateAll = function(template_source, where) {
 	var items_json = JSON.parse(this.storedPosts);
@@ -80,7 +71,9 @@ $newPostForm.on('submit', function(event) {
 
 	var tempPost = new Post($yourName.val(), $postTitle.val(), $content.val());
 	tempPost.saveToLs(tempPost);
-	tempPost.renderTemplate('#post-template', '#post-list');
+	// tempPost.renderTemplate('#post-template', '#post-list');
+	$('#post-list').html('');
+	refresh();
 
 	$('#new-post').modal('hide');
 
@@ -96,13 +89,21 @@ $('#post-list').on('click', '.delete', function() {
 
 });
 
+// Delete all posts button
+$('#delete-all').on('click', function() {
+	if (confirm('Are you sure you want to delete all posts?')) {
+		localStorage.clear();
+		$('#post-list').html('');
+	}
+})
+
+//Used to find the index of posts in storedItems based on the index of the child div in parent div
 function reverseNum(arr, index) {
 	return arr.length - (index + 1);
 }
 
 // Add high five to post on click
 $('#post-list').on('click', '.high-five-click', function() {
-	alert('Test');
 	var $post = $(this).closest(".post").index();
 	var items = JSON.parse(localItems.storedPosts);
 
