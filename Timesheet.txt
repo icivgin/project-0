@@ -1,4 +1,7 @@
 Timesheet
 
 THU:
-8:09pm -
+8:09pm - 10:50pm
+
+FRI:
+10:15am - 11:22am Save and render methods

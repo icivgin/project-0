@@ -19,9 +19,9 @@
 		<!-- header -->
 		<div id='header'>
 			<ul class='header'>
-				<li><a href='index.html'>HOME<a></li>
-				<li><h1>LogoIMG</h1></li>
-				<li><a href='about.html'>ABOUT</a></li>
+<!-- 				<li><a href='index.html'>HOME<a></li> -->
+				<li><img class='header-img' src='images/header.jpg' /></li>
+<!-- 				<li><a href='about.html'>ABOUT</a></li> -->
 			</ul>
 		</div>
 		<hr>
@@ -30,31 +30,32 @@
 		<div class='post-btn'>
 			<a href='#' type='button' id='new-post-btn' data-toggle='modal' data-target='#new-post'>Add new post</a>
 		</div>
-
-		<!-- One post -->
-		<div class='post'>
-			<div class='row'>
-				<button type="button" class="close delete" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				<div class='col-md-1'>
-					<p class='post-number'>&#8470; 5</p>
-				</div>
-				<div class='col-md-10'>
-					<div>
-						<h2>Title</h2>
-						<p class='#'>
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus dignissim venenatis erat a fermentum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Fusce dapibus est vel lacus maximus, quis euismod lectus gravida. Aliquam tempus ullamcorper arcu, in malesuada ante. Duis ut molestie sapien. Nullam congue, velit a facilisis laoreet, nulla erat mollis metus, quis auctor ante massa nec est.
-						</p>
+		<div id='post-list'>
+			<!-- One post -->
+			<!-- <div class='post'>
+				<div class='row'>
+					<button type="button" class="close delete" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<div class='col-md-1'>
+						<p class='post-number'>&#8470; 5</p>
+					</div>
+					<div class='col-md-10'>
 						<div>
-							<h4 class='post-footer'>Posted by Ian Civgin on July 2, 2015.</h4>
+							<h2>Title</h2>
+							<p class='#'>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus dignissim venenatis erat a fermentum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Fusce dapibus est vel lacus maximus, quis euismod lectus gravida. Aliquam tempus ullamcorper arcu, in malesuada ante. Duis ut molestie sapien. Nullam congue, velit a facilisis laoreet, nulla erat mollis metus, quis auctor ante massa nec est.
+							</p>
+							<div>
+								<p class='post-footer'><b>Posted by Ian Civgin on July 2, 2015.</b></p>
+							</div>
 						</div>
 					</div>
+					<div class='col-md-1 high-five'>
+						<p class='post-footer'>4<span class='high-five-btn'>ICON</span></p>
+					</div>
 				</div>
-				<div class='col-md-1 high-five'>
-					<p class='post-footer'>4<span>ICON</span></p>
-				</div>
-			</div>
+			</div> -->
+			<!-- One Post/ -->
 		</div>
-		<!-- One Post/ -->
 
 		<!-- Modal / Form -->
 		<div class="modal fade" id="new-post" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -67,23 +68,27 @@
 		      <div class="modal-body">
 		        <form class='form-group' id='new-post-form'>
 		        	<label for='your-name'>Your name</label>
-					<input class='form-control' id='your-name' type="text" placeholder='For example "Jon Doe"' required>
+					<input class='form-control' id='your-name' type="text" placeholder='For example "Jon Doe"'>
 					
 					</input>
 					<label for='post-title'>Post title</label>
-					<input class='form-control' id='post-title' type="text" required>
+					<input class='form-control' id='post-title' type="text">
 						
 					</input>
 					<label for='content'>What would you like to write today?</label>
-					<textarea class='form-control' rows='4' id='content' type="text" required>
+					<textarea class='form-control' rows='4' id='content' type="text">
 						
 					</textarea>
+					<div class='text-right'>
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						<input type="submit" class="btn btn-primary"></input>
+					</div>
 		        </form>
 		      </div>
-		      <div class="modal-footer">
+		     <!--  <div class="modal-footer">
 		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-		        <button type="button" class="btn btn-primary">Publish</button>
-		      </div>
+		        <input type="submit" class="btn btn-primary"></input>
+		      </div> -->
 		    </div>
 		  </div>
 		</div>
@@ -117,7 +122,7 @@
 							<%= content %>
 						</p>
 						<div>
-							<h4 class='post-footer'>Posted by <%= name %> on <%= date %>.</h4>
+							<p class='post-footer'><b>Posted by <%= owner %> on <%= date %>.</b></p>
 						</div>
 					</div>
 				</div>

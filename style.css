@@ -1,6 +1,6 @@
 /* Header */
 #header {
-	margin-top: 40px;
+	margin-top: 15px;
 	margin-right: 50px;
 }
 
@@ -9,11 +9,19 @@
 	text-align: center;
 }
 
-.header li,
-.header li h1 {
+.header li {
 	display: inline;
 	padding: 30px;
-	color: darkblue;
+}
+
+.header img {
+	max-width: 400px;
+}
+
+@media screen and (max-width: 575px) {
+	.header img {
+		max-width: 200px;
+	}
 }
 
 /* Add post button*/
@@ -25,7 +33,7 @@
 .post {
 	padding: 20px 20px 50px 20px;
 	margin-bottom: 20px;
-	border: solid darkblue 1px;
+	border: solid black 1px;
 }
 
 .post-footer {
