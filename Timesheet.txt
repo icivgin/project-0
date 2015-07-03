@@ -7,3 +7,4 @@ FRI:
 10:15am - 11:22am || Save and render methods
 11:22am - 12:09pm || Added high-five functionality :)
 12:09pm - 12:24pm || Added delete-all button. Fixed bugs regarding refresh().
+12:24pm - 12:40pm || Added the delete single post functionality. Did minor testing and everything seems to work.

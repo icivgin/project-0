@@ -79,13 +79,28 @@ $newPostForm.on('submit', function(event) {
 
 });
 
+//reindex function for individual post delete button
+function reindex(arr) {
+	$.each(arr, function(index) {
+		this.index = index;
+	});
+}
+
 // Post delete button
 $('#post-list').on('click', '.delete', function() {
-	alert('Are you sure');
+	if (confirm('Are you sure you want to delete this post?')) {
+		var $post = $(this).closest(".post").index();
+		var items = JSON.parse(localItems.storedPosts);
+		var index = reverseNum(items, $post);
+		items.splice(index, 1);
+		reindex(items);
 
-	//remove post from list and storage
-	//reindex
-	//refresh page
+		// items[reverseNum(items, $post)].splice($);
+		localStorage.clear();
+		localStorage.setItem('posts', JSON.stringify(items));
+		$('#post-list').html('');
+		refresh();
+	}
 
 });
 
