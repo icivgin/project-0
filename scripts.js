@@ -21,21 +21,18 @@ function Post (owner, title, content) {
 
 Post.count = 1;
 
-//SaveRender instance of all stored posts
-//Used to display stored posts on page load
-localItems = new SaveRender(localStorage.getItem('posts'));
-
-Post.prototype.delete = function() {
+SaveRender.prototype.delete = function() {
 
 }
 
-Post.prototype.highFive = function() {
-
+Post.prototype.addHighFive = function() {
+	this.highFiveCount += 1;
 }
 
 //Save render constructor and prototypes
 function SaveRender(storedPosts) {
 	this.storedPosts = storedPosts;
+	this.key = 'posts'
 }
 
 //SaveRender prototype method that saves post to local storage
@@ -85,16 +82,47 @@ $newPostForm.on('submit', function(event) {
 	tempPost.saveToLs(tempPost);
 	tempPost.renderTemplate('#post-template', '#post-list');
 
+	$('#new-post').modal('hide');
+
 });
 
 // Post delete button
-$newPostForm.on('submit', '.delete', function() {
+$('#post-list').on('click', '.delete', function() {
+	alert('Are you sure');
+
+	//remove post from list and storage
+	//reindex
+	//refresh page
+
+});
+
+function reverseNum(arr, index) {
+	return arr.length - (index + 1);
+}
+
+// Add high five to post on click
+$('#post-list').on('click', '.high-five-click', function() {
+	alert('Test');
+	var $post = $(this).closest(".post").index();
+	var items = JSON.parse(localItems.storedPosts);
+
+	items[reverseNum(items, $post)].highFiveCount += 1;
+	localStorage.clear();
+	localStorage.setItem('posts', JSON.stringify(items));
+	$('#post-list').html('');
+	refresh();
 
 
 });
 
-//On page load, display stored items 
-localItems.renderTemplateAll('#post-template', '#post-list');
+//refresh list.
+function refresh() {
+	localItems = new SaveRender(localStorage.getItem('posts'));
+	localItems.renderTemplateAll('#post-template', '#post-list');
+}
+
+//On page load, displays stored posts
+refresh();
 
 //Enables input focus for modal
 $('#new-post').on('shown.bs.modal', function () {
