@@ -38,4 +38,13 @@
 }
 .high-five {
 	padding-top: 25px;
+	padding-right: 20px;
+}
+.close {
+	margin-right: 20px;
+}
+
+/* Form */
+.form-control {
+	margin-bottom: 20px;
 }

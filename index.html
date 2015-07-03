@@ -10,7 +10,7 @@
 	<!-- custom styles -->
 	<link rel="stylesheet" type="text/css" href="style.css">
 
-	<title>Title</title>
+	<title>microBLOG</title>
 </head>
 <body>
 
@@ -19,25 +19,26 @@
 		<!-- header -->
 		<div id='header'>
 			<ul class='header'>
-				<li>HOME</li>
+				<li><a href='index.html'>HOME<a></li>
 				<li><h1>LogoIMG</h1></li>
-				<li>ABOUT</li>
+				<li><a href='about.html'>ABOUT</a></li>
 			</ul>
 		</div>
 		<hr>
 
 		<!-- Add new post btn -->
 		<div class='post-btn'>
-			<a href='#' id='new-post-btn'>Add new post</a>
+			<a href='#' type='button' id='new-post-btn' data-toggle='modal' data-target='#new-post'>Add new post</a>
 		</div>
 
 		<!-- One post -->
 		<div class='post'>
 			<div class='row'>
-				<div class='col-sm-1'>
+				<button type="button" class="close delete" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<div class='col-md-1'>
 					<p class='post-number'>&#8470; 5</p>
 				</div>
-				<div class='col-sm-10'>
+				<div class='col-md-10'>
 					<div>
 						<h2>Title</h2>
 						<p class='#'>
@@ -48,12 +49,45 @@
 						</div>
 					</div>
 				</div>
-				<div class='col-sm-1 high-five'>
+				<div class='col-md-1 high-five'>
 					<p class='post-footer'>4<span>ICON</span></p>
 				</div>
 			</div>
 		</div>
 		<!-- One Post/ -->
+
+		<!-- Modal / Form -->
+		<div class="modal fade" id="new-post" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        <h4 class="modal-title" id="myModalLabel">Write a new post:</h4>
+		      </div>
+		      <div class="modal-body">
+		        <form class='form-group' id='new-post-form'>
+		        	<label for='your-name'>Your name</label>
+					<input class='form-control' id='your-name' type="text" placeholder='For example "Jon Doe"' required>
+					
+					</input>
+					<label for='post-title'>Post title</label>
+					<input class='form-control' id='post-title' type="text" required>
+						
+					</input>
+					<label for='content'>What would you like to write today?</label>
+					<textarea class='form-control' rows='4' id='content' type="text" required>
+						
+					</textarea>
+		        </form>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		        <button type="button" class="btn btn-primary">Publish</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		<!-- Modal / -->
 
 	</div>
 
@@ -68,5 +102,30 @@
 
 	<!-- custom script -->
 	<script type="text/javascript" src="scripts.js"></script>
+
+	<script type='text/template' id='post-template'>
+		<div class='post'>
+			<div class='row'>
+				<button type="button" class="close delete" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<div class='col-sm-1'>
+					<p class='post-number'>&#8470; <%= index %></p>
+				</div>
+				<div class='col-sm-10'>
+					<div>
+						<h2><%= title %></h2>
+						<p class='#'>
+							<%= content %>
+						</p>
+						<div>
+							<h4 class='post-footer'>Posted by <%= name %> on <%= date %>.</h4>
+						</div>
+					</div>
+				</div>
+				<div class='col-sm-1 high-five'>
+					<p class='post-footer'><%= highFiveCount %><span>ICON</span></p>
+				</div>
+			</div>
+		</div>
+	</script>
 </body>
 </html>
